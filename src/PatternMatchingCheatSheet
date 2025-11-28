@@ -1,0 +1,24 @@
+Cheat Sheet de Expresiones Regulares en Java
+1. Sintaxis Básica
+Símbolo	Significado	Ejemplo
+.	        Cualquier carácter (excepto nueva línea)	    "a.c" coincide con "abc", "a1c", pero no con "ac".
+*	        Cero o más repeticiones	                        "a*" coincide con "", "a", "aaa".
++	        Una o más repeticiones	                        "a+" coincide con "a", "aaa", pero no con "".
+?	        Cero o una repetición	                        "a?" coincide con "", "a", pero no con "aa".
+\d	        Dígito (0-9)	                                "\d" coincide con "5", pero no con "a".
+\w	        Caracter alfanumérico o guion bajo	            "\w" coincide con "a", "5", "_" pero no con "@".
+\s	        Espacio en blanco	                            "\s" coincide con " ", "\t".
+^	        Inicio de la cadena	                            "^a" coincide con "abc", pero no con "bac".
+$	        Fin de la cadena	                            "a$" coincide con "cba", pero no con "abc".
+[abc]	    Cualquiera de los caracteres entre corchetes	"[abc]" coincide con "a", "b", "c", pero no con "d".
+[^abc]	    Cualquier carácter excepto los especificados	"[^abc]" coincide con "d", pero no con "a", "b", "c".
+[a-z]	    Rango de caracteres	                            "[a-z]" coincide con "a", "m", pero no con "A".
+`(x	y)`	    Coincide con x o y
+{n}	        Exactamente n repeticiones	                    "a{3}" coincide con "aaa", pero no con "aa".
+{n,}	    Al menos n repeticiones	                        "a{2,}" coincide con "aa", "aaa", "aaaa".
+{n,m}	    Entre n y m repeticiones	                    "a{2,4}" coincide con "aa", "aaa", "aaaa", pero no con "aaaaa".
+
+Ejemplos:
+URLs: ^(https?|ftp)://[^\s/$.?#].[^\s]*$
+Email: ^[\\w-\\.]+@[\\w-]+\\.[a-z]{2,}$
+contraseñas seguras: ^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=]).{8,}$
